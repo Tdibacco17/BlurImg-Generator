@@ -1,7 +1,29 @@
 {
-    "image": {
-        "imgSrc": "/assets/img/Strong_Wood_IG-43.webp",
-        "imgAlt": "Imagen",
-        "imgBlur": "/assets/blur/image.svg"
-    }
+    "images": [
+        {
+            "imgId": 1,
+            "imgSrc": "/assets/img/25Watts.webp",
+            "imgAlt": "Imagen"
+        },
+        {
+            "imgId": 2,
+            "imgSrc": "/assets/img/apiDog.webp",
+            "imgAlt": "Imagen"
+        },
+        {
+            "imgId": 3,
+            "imgSrc": "/assets/img/gameHub.webp",
+            "imgAlt": "Imagen"
+        },
+        {
+            "imgId": 4,
+            "imgSrc": "/assets/img/rickYmorty.webp",
+            "imgAlt": "Imagen"
+        },
+        {
+            "imgId": 5,
+            "imgSrc": "/assets/img/strongWood.webp",
+            "imgAlt": "Imagen"
+        }
+    ]
 }

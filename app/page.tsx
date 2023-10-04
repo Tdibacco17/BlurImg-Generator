@@ -5,27 +5,39 @@ import dynamicBlurDataUrl from '@/utils/blur/dynamicBlurDataUrl'
 import data from '@/models/es.json'
 
 interface ImgDataInterface {
+  imgId: number,
   imgSrc: string,
   imgAlt: string,
-  imgBlur: string
 }
 
+// CHEKIAR SIEMPRE 
+//const baseURL = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'http://localhost:3001';
 export default async function BannerComponent() {
-  const blurHash = await dynamicBlurDataUrl(data.image.imgSrc);
-
   return (
-    <section className={styles['container-outer-banner-image']}>
-      <Image
-        className={styles['container-inner-banner-image']}
-        src={data.image.imgSrc}
-        alt={data.image.imgAlt}
-        fill
-        sizes='100vw, (max-width: 442px) 32vw, (max-width: 768px) 35vw, (max-width: 1024px) 75vw'
-        priority
-        quality={100}
-        placeholder='blur'
-        blurDataURL={blurHash || staticBlurDataUrl()}
-      />
-    </section>
+    <div className={styles['container']}>
+      {
+        data.images.map(async (image: ImgDataInterface, index: number) => {
+          const blurHash = await dynamicBlurDataUrl(image.imgSrc);
+
+          return (
+            <section key={index} className={styles['container-outer-banner-image']}>
+              <Image
+                key={image.imgId}
+                className={styles['container-inner-banner-image']}
+                src={image.imgSrc}
+                alt={image.imgAlt}
+                fill
+                sizes='100vw, (max-width: 442px) 32vw, (max-width: 768px) 35vw, (max-width: 1024px) 75vw'
+                priority
+                quality={100}
+                placeholder='blur'
+                blurDataURL={blurHash || staticBlurDataUrl()}
+              />
+            </section>
+          )
+        }
+        )
+      }
+    </div >
   )
 }

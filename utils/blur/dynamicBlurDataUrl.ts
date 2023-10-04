@@ -1,4 +1,4 @@
-const baseURL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'http://localhost:3000';
+const baseURL = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'http://localhost:3001';
 
 export default async function dynamicBlurDataUrl(url: string) {
     const base64str = await fetch(`${baseURL}/_next/image?url=${url}&w=16&q=100`)
